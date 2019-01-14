@@ -5,5 +5,4 @@
 * setOnLongClickListener
 * AlertDialog
 * use [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) to fit all sizes of screens
-
-![cars3 demo](./cars3-demo.gif)
+<img src="./cars3-demo.gif" width="300">
