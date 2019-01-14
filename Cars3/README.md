@@ -4,4 +4,4 @@
 * Intent
 * setOnLongClickListener
 * AlertDialog
-* used Final Android Resizer to fit all sizes of screens
+* use [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) to fit all sizes of screens
