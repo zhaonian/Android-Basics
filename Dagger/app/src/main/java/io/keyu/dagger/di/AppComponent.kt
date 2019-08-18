@@ -15,7 +15,8 @@ import io.keyu.dagger.BaseApplication
 @Component(
     modules = [
         AndroidSupportInjectionModule::class,
-        ActivitiesBuilderModule::class
+        ActivitiesBuilderModule::class,
+        AppModule::class
     ]
 )
 interface AppComponent : AndroidInjector<BaseApplication> {
