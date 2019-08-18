@@ -13,7 +13,10 @@ import io.keyu.dagger.BaseApplication
  * Component as the a service, fragment/activity/application are the clients who use the service.
  */
 @Component(
-    modules = [AndroidSupportInjectionModule::class]
+    modules = [
+        AndroidSupportInjectionModule::class,
+        ActivitiesBuilderModule::class
+    ]
 )
 interface AppComponent : AndroidInjector<BaseApplication> {
 

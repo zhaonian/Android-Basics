@@ -1,9 +1,9 @@
 package io.keyu.dagger
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dagger.android.support.DaggerAppCompatActivity
 
-class AuthActivity : AppCompatActivity() {
+class AuthActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
