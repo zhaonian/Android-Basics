@@ -2,11 +2,13 @@ package io.keyu.dagger.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-
 import javax.inject.Inject;
 import javax.inject.Provider;
 import java.util.Map;
 
+/**
+ * Current workaround for doing viewmodel injection. Hopefully, Google can fix this soon and we can get rid of this.
+ */
 public class ViewModelProviderFactory implements ViewModelProvider.Factory {
 
     private static final String TAG = "ViewModelProviderFactor";
