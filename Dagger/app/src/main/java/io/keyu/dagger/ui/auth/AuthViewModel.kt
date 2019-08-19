@@ -1,22 +1,24 @@
 package io.keyu.dagger.ui.auth
 
-import android.util.Log
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import io.keyu.dagger.model.User
 import io.keyu.dagger.network.auth.AuthApi
-import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class AuthViewModel @Inject constructor(authApi: AuthApi) : ViewModel() {
-    init {
-        authApi.getUser(1).toObservable().subscribeOn(Schedulers.io()).subscribeBy(
-            onNext = {
-                Log.d("hehe", it.username)
-            },
-            onError = {
-                Log.e("hahaha", it.message)
-            },
-            onComplete = {}
+class AuthViewModel @Inject constructor(private val authApi: AuthApi) : ViewModel() {
+
+    private val authUser = MediatorLiveData<User>()
+    val authUserLiveData: LiveData<User> = authUser
+
+    fun authenticateWithId(userId: Int) {
+        val source = LiveDataReactiveStreams.fromPublisher(
+            authApi.getUser(userId).subscribeOn(Schedulers.io())
         )
+
+        authUser.addSource(source) {
+            authUser.value = it
+            authUser.removeSource(source)
+        }
     }
 }

@@ -58,10 +58,6 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
-//    // RxJava
-//    def rxjava_version = '2.1.1'
-//    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
-
     // RxKotlin
     implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
 
@@ -69,4 +65,7 @@ dependencies {
     def rxcalladapter_version = '2.5.0'
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rxcalladapter_version" // Retrofit call adapter
 
+    // Reactive Streams (convert Observable to LiveData)
+    def reactivestreams_version = "1.1.1"
+    implementation "android.arch.lifecycle:reactivestreams:$reactivestreams_version"
 }
