@@ -13,7 +13,6 @@ import com.bumptech.glide.RequestManager
 import dagger.android.support.DaggerAppCompatActivity
 import io.keyu.dagger.R
 import io.keyu.dagger.viewmodel.ViewModelProviderFactory
-import kotlinx.android.synthetic.main.activity_auth.view.*
 import javax.inject.Inject
 
 class AuthActivity : DaggerAppCompatActivity(), View.OnClickListener {
