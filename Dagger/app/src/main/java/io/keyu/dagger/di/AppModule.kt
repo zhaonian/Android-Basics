@@ -9,6 +9,10 @@ import com.bumptech.glide.request.RequestOptions
 import dagger.Module
 import dagger.Provides
 import io.keyu.dagger.R
+import io.keyu.dagger.util.Constants.BASE_URL
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 /**
@@ -41,6 +45,17 @@ abstract class AppModule {
         @JvmStatic
         fun provideAppLogoDrawable(application: Application): Drawable {
             return ContextCompat.getDrawable(application, R.drawable.ic_android_material_blue_24dp)!!
+        }
+
+        @Singleton
+        @Provides
+        @JvmStatic
+        fun provideRetrofitInstance(): Retrofit {
+            return Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
         }
     }
 }
