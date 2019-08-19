@@ -9,6 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import dagger.Module
 import dagger.Provides
 import io.keyu.dagger.R
+import javax.inject.Singleton
 
 /**
  * All the dependencies that do not change throughout the entire app such as retorfit and glide
@@ -18,6 +19,8 @@ abstract class AppModule {
 
     @Module
     companion object {
+
+        @Singleton
         @Provides
         @JvmStatic
         fun provideRequestOptions(): RequestOptions {
@@ -26,12 +29,14 @@ abstract class AppModule {
                 .error(R.drawable.white_background)
         }
 
+        @Singleton
         @Provides
         @JvmStatic
         fun provideGlideInstance(application: Application, requestOptions: RequestOptions): RequestManager {
             return Glide.with(application).setDefaultRequestOptions(requestOptions)
         }
 
+        @Singleton
         @Provides
         @JvmStatic
         fun provideAppLogoDrawable(application: Application): Drawable {
