@@ -16,7 +16,7 @@ import javax.inject.Singleton
  * This component owns the @Singleton scope, if this component died, all the @Singleton dependencies
  * will die with it.
  *
- * @Single is just a label, and we can create a random one that plays exactly the same role.
+ * @Singleton is just a label, and we can create a random one that plays exactly the same role.
  */
 @Singleton
 @Component(
