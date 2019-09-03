@@ -36,7 +36,7 @@ class AuthActivity : DaggerAppCompatActivity(), View.OnClickListener {
 
         setLogo()
 
-        subscribeOberservers()
+        subscribeObservers()
     }
 
     override fun onClick(v: View?) {
@@ -56,10 +56,10 @@ class AuthActivity : DaggerAppCompatActivity(), View.OnClickListener {
         authViewModel?.authenticateWithId(userId?.text.toString().toInt())
     }
 
-    private fun subscribeOberservers() {
+    private fun subscribeObservers() {
         authViewModel?.authUserLiveData?.observe(this, Observer {
             it?.let {
-                Log.d("haha", it.email)
+                Log.d("haha", it.status.name)
             }
         })
     }
