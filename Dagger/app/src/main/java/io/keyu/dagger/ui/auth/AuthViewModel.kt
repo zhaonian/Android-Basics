@@ -30,5 +30,5 @@ class AuthViewModel @Inject constructor(
                 }
             }
             .subscribeOn(Schedulers.io())
-        ) as LiveData<AuthResource<User>>
+        ) as LiveData<AuthResource<User>> // the cast is needed here.
 }

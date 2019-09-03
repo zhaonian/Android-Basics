@@ -5,6 +5,7 @@ import dagger.android.ContributesAndroidInjector
 import io.keyu.dagger.di.auth.AuthModule
 import io.keyu.dagger.di.auth.AuthViewModelsModule
 import io.keyu.dagger.ui.auth.AuthActivity
+import io.keyu.dagger.ui.main.MainActivity
 
 @Module
 abstract class ActivitiesBuilderModule {
@@ -14,4 +15,7 @@ abstract class ActivitiesBuilderModule {
         modules = [AuthViewModelsModule::class, AuthModule::class] // only scope this to AuthActivity
     )
     abstract fun contributeAuthActivity(): AuthActivity // a sub-compoennt
+
+    @ContributesAndroidInjector()
+    abstract fun contributeMainActivity(): MainActivity
 }
