@@ -12,7 +12,7 @@ class SessionManager @Inject constructor() {
 
     private val _cachedUser: MediatorLiveData<AuthResource<User>> = MediatorLiveData()
 
-    val cachedUser = _cachedUser
+    val cachedUser: LiveData<AuthResource<User>> = _cachedUser
 
     fun authenticateWithId(source: LiveData<AuthResource<User>>) {
         _cachedUser.value = AuthResource.loading(null)

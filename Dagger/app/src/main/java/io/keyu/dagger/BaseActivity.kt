@@ -2,7 +2,6 @@ package io.keyu.dagger
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.lifecycle.Observer
 import dagger.android.support.DaggerAppCompatActivity
 import io.keyu.dagger.ui.auth.AuthActivity
@@ -14,17 +13,19 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
 
     @Inject lateinit var sessionManager: SessionManager
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        subscribeObservers()
+    }
+
     private fun subscribeObservers() {
         sessionManager.cachedUser.observe(this, Observer {
             when (it.status) {
                 AuthResource.AuthStatus.LOADING -> {
-
                 }
                 AuthResource.AuthStatus.AUTHENTICATED -> {
-
                 }
                 AuthResource.AuthStatus.ERROR -> {
-
                 }
                 AuthResource.AuthStatus.NOT_AUTHENTICATED -> {
                     launchLoginScreen()
