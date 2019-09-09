@@ -59,6 +59,9 @@
         android:name="io.zluan.navigationcomponent.SpecifyAmountFragment"
         android:label="fragment_specify_amount"
         tools:layout="@layout/fragment_specify_amount" >
+
+        <argument android:name="recipient" android:defaultValue="None"/>
+
         <action
             android:id="@+id/action_specifyAmountFragment_to_confirmationFragment"
             app:destination="@id/confirmationFragment"
@@ -67,9 +70,15 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"/>
     </fragment>
+
+    <!-- When you want to send bundle to the another fragment, make sure to add arguments to the
+    recipient fragment -->
     <fragment
         android:id="@+id/confirmationFragment"
         android:name="io.zluan.navigationcomponent.ConfirmationFragment"
         android:label="fragment_confirmation"
-        tools:layout="@layout/fragment_confirmation" />
+        tools:layout="@layout/fragment_confirmation">
+        <argument android:name="recipient" android:defaultValue="None"/>
+        <argument android:name="amount" app:argType="io.zluan.navigationcomponent.Money"/>
+    </fragment>
 </navigation>
