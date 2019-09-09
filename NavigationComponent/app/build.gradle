@@ -37,8 +37,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     def nav_version = "2.1.0"
-    implementation "androidx.navigation:navigation-fragment:$nav_version" // For Kotlin use navigation-fragment-ktx
-    implementation "androidx.navigation:navigation-ui:$nav_version" // For Kotlin use navigation-ui-ktx
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    // For Kotlin use navigation-fragment-ktx
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+    // For Kotlin use navigation-ui-ktx
 
     implementation "com.google.android.material:material:1.1.0-alpha10"
 }
