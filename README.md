@@ -1,7 +1,7 @@
 ## Android Experiments
-
-| Cars3                                | Fragment, Intent                        |
+| Repo                                 | Note                                    |
 |--------------------------------------|-----------------------------------------|
+| [Cars3](./Cars3)                     | Fragment, Intent                        |
 | Dagger                               | Dependency Injection with Dagger2, MVVM |
 | Me                                   | FragmentManager, Landscape              |
 | Native C++ Neural Network on Android | JNI, NDK                                |
