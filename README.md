@@ -8,3 +8,4 @@
 | [Navigation Component](./NavigationComponent)                         | Jetpack Navigation Component            |
 | [Notification Scheduler](./NotificationScheduler)                     | Notification, JobService                |
 | [Notify Me](./NotifyMe)                                               | Notification, BroadcastReceiver         |
+| [Work Manager](./WorkManager)                                         | WorkManager, Work Chains, Constraints   |
