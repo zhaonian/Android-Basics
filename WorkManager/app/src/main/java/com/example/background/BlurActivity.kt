@@ -52,6 +52,7 @@ class BlurActivity : AppCompatActivity() {
             Glide.with(this).load(imageUri).into(imageView)
         }
 
+        setOnClickListeners()
     }
 
     private fun bindResources() {
@@ -90,4 +91,8 @@ class BlurActivity : AppCompatActivity() {
                 R.id.radio_blur_lv_3 -> 3
                 else -> 1
             }
+
+    private fun setOnClickListeners() {
+        goButton.setOnClickListener { viewModel.applyBlur(blurLevel) }
+    }
 }
