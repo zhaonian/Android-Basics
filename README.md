@@ -9,3 +9,4 @@
 | [Notification Scheduler](./NotificationScheduler)                     | Notification, JobService                |
 | [Notify Me](./NotifyMe)                                               | Notification, BroadcastReceiver         |
 | [Work Manager](./WorkManager)                                         | WorkManager, Work Chains, Constraints   |
+| [Paging](./Paging)                                                    | Paging Library, MVVM Repository, RoomDB |
