@@ -39,3 +39,7 @@ runBlocking should only be used from APIs that expect blocking calls like tests.
 
 
 
+Important: Even though we only use viewModelScope in this codelab, generally it's fine to add a scope anywhere that it makes sense. Don't forget to cancel it if it's no longer needed.
+
+For example, you might declare one in a RecyclerView Adapter to do DiffUtil operations.
+
