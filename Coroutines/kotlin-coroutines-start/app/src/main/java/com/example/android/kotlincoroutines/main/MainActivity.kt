@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.snackbar.observe(this, Observer { text ->
             text?.let {
                 Snackbar.make(rootLayout, text, Snackbar.LENGTH_SHORT).show()
+
                 viewModel.onSnackbarShown()
             }
 

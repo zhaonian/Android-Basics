@@ -21,9 +21,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android.kotlincoroutines.util.BACKGROUND
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 /**
  * MainViewModel designed to store and manage UI-related data in a lifecycle conscious way. This
@@ -43,6 +41,11 @@ class MainViewModel : ViewModel() {
      */
     private val _snackBar = MutableLiveData<String>()
 
+    private val viewModelJob = Job()
+
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+
+    private var a  = 1
     /**
      * Request a snackbar to display a string.
      */
@@ -77,10 +80,41 @@ class MainViewModel : ViewModel() {
 //            _snackBar.postValue("Hello, from threads!")
 //        }
         // Dispatchers.Main is the default dispatcher if not declared where to launch.
-        viewModelScope.launch {
-            delay(1_000)
-            _snackBar.value = "Hello, from coroutines!"
+        _snackBar.value = "Loading"
+
+        uiScope.launch {
+            if (!viewModelJob.isCompleted) {
+                viewModelJob.cancel()
+            }
+            viewModelJob.start()
+            repeat(3) {
+                _snackBar.value = getSnackbarTextFromFakeNetworkCall1()
+                delay(2_000)
+            }
+//            val result: Deferred<String> = async {
+//                delay(3000)
+//                "async block"
+//            }
+//
+//            println(result.await())
         }
+
+
+    }
+
+    fun getSnackbarTextFromFakeNetworkCall1(): String {
+        runBlocking {
+            delay(2_000)
+        }
+        a++
+        return "network - $a"
+    }
+
+    fun getSnackbarTextFromFakeNetworkCall2(): String {
+        runBlocking {
+            delay(2_000)
+        }
+        return "network 2"
     }
 
     /**
