@@ -1,2 +1,2 @@
-include ':app'
+include ':coreui', ':coreui-demo'
 rootProject.name='CoreUI'
