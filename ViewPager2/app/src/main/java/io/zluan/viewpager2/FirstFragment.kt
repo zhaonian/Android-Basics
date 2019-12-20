@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.view.ViewCompat
-import androidx.core.view.marginEnd
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -23,8 +22,6 @@ import kotlin.math.max
 class FirstFragment : Fragment() {
 
     private lateinit var viewpager: ViewPager2
-    private val MIN_SCALE = 0.85f
-    private val MIN_ALPHA = 0.5f
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -122,33 +119,8 @@ class FirstFragment : Fragment() {
         override fun getItemCount(): Int = list.size
     }
 
-//    class ViewPager2PageTransformation : ViewPager2.PageTransformer {
-//
-//        override fun transformPage(page: View, position: Float) {
-//            val absPos = abs(position)
-//            page.apply {
-//                translationY = absPos * 500f
-//                translationX = absPos * 500f
-//                scaleX = 1f
-//                scaleY = 1f
-//            }
-//
-//            when {
-//                position < -1 ->
-//                    page.alpha = 0.1f
-//                position <= 1 -> {
-//                    page.alpha = max(0.2f, 1 - abs(position))
-//                }
-//                else -> page.alpha = 0.1f
-//            }
-//        }
-//    }
-
-
 
     class ZoomOutPageTransformer : ViewPager2.PageTransformer {
-        private val MIN_SCALE = 0.65f
-        private val MIN_ALPHA = 0.5f
         override fun transformPage(view: View, position: Float) {
             view.apply {
                 val pageWidth = width
@@ -160,7 +132,7 @@ class FirstFragment : Fragment() {
                     }
                     position <= 1 -> { // [-1,1]
                         // Modify the default slide transition to shrink the page as well
-                        val scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position))
+                        val scaleFactor = max(MIN_SCALE, 1 - abs(position))
                         val vertMargin = pageHeight * (1 - scaleFactor) / 2
                         val horzMargin = pageWidth * (1 - scaleFactor) / 2
                         translationX = if (position < 0) {
@@ -184,5 +156,10 @@ class FirstFragment : Fragment() {
                 }
             }
         }
+    }
+
+    companion object {
+        private const val MIN_SCALE = 0.85f
+        private const val MIN_ALPHA = 0.5f
     }
 }
