@@ -1,0 +1,2 @@
+include ':coreui', ':coreui-demo'
+rootProject.name='CoreUI'
