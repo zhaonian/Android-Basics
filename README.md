@@ -10,3 +10,5 @@
 | [Notify Me](./NotifyMe)                                               | Notification, BroadcastReceiver         |
 | [Work Manager](./WorkManager)                                         | WorkManager, Work Chains, Constraints   |
 | [Paging](./Paging)                                                    | Paging Library, MVVM Repository, RoomDB |
+| [ViewPager2](./ViewPager2)                                            | ViewPager2, RecyclerView                |
+| [CoreUI](./CoreUI)                                                    | MaterialButtonGroup                     |
